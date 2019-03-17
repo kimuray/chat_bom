@@ -1,0 +1,10 @@
+<%= form_with url: messages_path, local: true do |form| %>
+  <% @channels.each.with_index do |channel, i| %>
+    <%= form.hidden_field "channel_ids[#{i}]", value: channel.id %>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :message, rows: 5, required: true %>
+  </div>
+  <%= form.submit "投稿" %>
+<% end %>
